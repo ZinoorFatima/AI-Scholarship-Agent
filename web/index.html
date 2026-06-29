@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Scholarship Agent</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header>
+    <h1>AI Scholarship Agent</h1>
+    <p class="tagline">Find scholarships, then build a winning application</p>
+  </header>
+
+  <main>
+    <!-- Discover scholarships -->
+    <section class="card">
+      <h2>Find scholarships</h2>
+      <p class="hint">Search by field, country, level… or get matches from your CV.</p>
+      <div class="searchbar">
+        <input id="search-query" type="text"
+               placeholder="e.g. STEM scholarships for international undergraduates" />
+        <button id="btn-search" class="primary">Search</button>
+      </div>
+      <button id="btn-recommend">★ Recommend from my CV</button>
+      <div id="discover-status" class="status hidden"></div>
+      <div id="discover-results" class="results"></div>
+    </section>
+
+    <!-- Application materials -->
+    <section class="card" id="input-card">
+      <h2>Your materials</h2>
+      <p class="hint">Upload a file or paste text. The agent reads either.</p>
+
+      <label>CV / Résumé
+        <div class="field-with-upload">
+          <textarea id="cv" rows="5" placeholder="Education, experience, skills…"></textarea>
+          <div class="uploader">
+            <input type="file" id="cv-file" accept=".pdf,.docx,.txt,.md" hidden />
+            <button type="button" class="upload-btn" data-target="cv" data-input="cv-file">⬆ Upload CV (PDF/DOCX/TXT)</button>
+            <span class="upload-name" id="cv-file-name"></span>
+          </div>
+        </div>
+      </label>
+
+      <label>Transcript / Grades
+        <div class="field-with-upload">
+          <textarea id="transcript" rows="3" placeholder="Degree, CGPA, key courses…"></textarea>
+          <div class="uploader">
+            <input type="file" id="transcript-file" accept=".pdf,.docx,.txt,.md" hidden />
+            <button type="button" class="upload-btn" data-target="transcript" data-input="transcript-file">⬆ Upload transcript</button>
+            <span class="upload-name" id="transcript-file-name"></span>
+          </div>
+        </div>
+      </label>
+
+      <label>Achievements
+        <textarea id="achievements" rows="3" placeholder="Awards, leadership roles, community work, projects…"></textarea>
+      </label>
+
+      <label>Target scholarship (description &amp; requirements)
+        <textarea id="scholarship" rows="4" placeholder="Pick one from search above, or paste eligibility rules, essay prompts, word limits…"></textarea>
+      </label>
+
+      <button id="btn-analyze" class="primary">Analyze application →</button>
+      <div id="status" class="status hidden"></div>
+    </section>
+
+    <!-- Analysis results -->
+    <section id="results" class="hidden">
+      <div class="card" id="r-eligibility"></div>
+      <div class="card" id="r-profile"></div>
+      <div class="card" id="r-gaps"></div>
+      <div class="card" id="r-essays"></div>
+      <div class="card" id="r-review"></div>
+      <div class="card" id="r-readiness"></div>
+      <button id="btn-restart">Start over</button>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
