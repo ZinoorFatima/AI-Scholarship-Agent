@@ -108,3 +108,9 @@ Tests mock the LLM — they run offline and need no API key.
 Materials are handled as text (uploaded files are converted to text on the
 backend). Image-only/scanned PDFs need OCR (not included). Multi-scholarship
 comparison and reference-letter drafting are natural next steps.
+
+---
+
+## License
+
+Released under the [MIT License](LICENSE).
